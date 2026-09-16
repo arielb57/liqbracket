@@ -133,7 +133,11 @@ def test_leg_staying_inside_one_tier_matches_closed_form(table, data, side):
     expected = _closed_form(side, leg.size, leg.entry_price, wallet, tier)
     assume(expected > 0)
     notional = leg.size * expected
-    assume(tier.floor <= notional and (tier.cap is None or notional <= tier.cap))
+    # Tiers are half-open [floor, cap): at notional == cap the leg has already
+    # left this tier, so the single-tier closed form no longer describes it. With
+    # a capped last tier the table stops covering the position there, and solve()
+    # rightly reports a price ceiling instead of a boundary it cannot justify.
+    assume(tier.floor <= notional and (tier.cap is None or notional < tier.cap))
     comparison = compare_group(_only_group(account))
     assert [b.price for b in comparison.exact.boundaries] == [expected]
     assert comparison.naive.price == expected
