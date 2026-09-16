@@ -1,0 +1,28 @@
+{
+  "name": "liqbracket",
+  "tagline": "Exact liquidation prices for perpetual futures under tiered margin, including hedge mode",
+  "language": "python",
+  "topics": [
+    "perpetual-futures",
+    "liquidation",
+    "margin",
+    "risk",
+    "exact-arithmetic",
+    "python"
+  ],
+  "trendOrigin": "Trend 1 (passivbot). Grid and DCA bots on perpetuals keep adding to positions and cross margin tiers without noticing. The weak spot isn't the strategy. It's the liquidation price the bot thinks it has.",
+  "gate": {
+    "stats": {
+      "sourceFiles": 15,
+      "testFiles": 4,
+      "testCases": 34,
+      "assertions": 110,
+      "readmeWords": 2222,
+      "testsPassed": true,
+      "lintPassed": true,
+      "entryPointRuns": true
+    },
+    "warnings": []
+  },
+  "generatedAt": "2026-09-16T17:40:10.355Z"
+}
