@@ -1,0 +1,10 @@
+{
+  "margin_mode": "cross",
+  "wallet_balance": "1500",
+  "long": {"size": "0.408", "entry_price": "25000"},
+  "tiers": [
+    {"max_notional": "10000", "mmr": "0.01"},
+    {"max_notional": "100000", "mmr": "0.05"},
+    {"max_notional": null, "mmr": "0.10"}
+  ]
+}
