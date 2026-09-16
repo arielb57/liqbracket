@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "liqbracket"
+version = "0.1.0"
+description = "Exact liquidation prices for perpetual futures under tiered margin, including hedge mode"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Ariel Belhamou" }]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8", "hypothesis>=6.100"]
+lint = ["ruff==0.6.9"]
+
+[project.scripts]
+liqbracket = "liqbracket.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["UP038"]
